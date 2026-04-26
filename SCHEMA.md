@@ -3,7 +3,7 @@ title: 知识库 · Frontmatter 与命名规范
 type: schema
 status: stable
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-26
 tags: [schema, convention]
 ---
 
@@ -28,6 +28,15 @@ tags: [schema, convention]
 | `created` | 是 | date | `YYYY-MM-DD` |
 | `updated` | 是 | date | `YYYY-MM-DD` |
 | `last_reviewed` | 推荐 | date | 最近复核日 |
+| `version` | 代码文档版本化场景必选 | string | 资料版本号，如 `2.0.0`；详见 §7 |
+| `supersedes` | 版本化新版必选 | wikilink | 我替代了哪个旧版页面 |
+| `superseded_by` | 版本化旧版被替代后必填 | wikilink | 我被哪个新版页面替代 |
+
+### 1.1 sources 字段豁免
+
+- `status: stub` 的页面 **允许** `sources: []`（占位期可暂缺）
+- 一旦 `status` 升级到 `draft` 或更高，`sources` 必须非空，否则不合规
+- `summary` 类型不享受豁免，建页即必须挂 source
 
 ## 2. status 生命周期
 
@@ -54,6 +63,20 @@ stub ──撰写──▶ draft ──多次复核──▶ stable
 | 中文标题 | 通过 `title` 与 `aliases` 提供 | — |
 | wikilink | 一律使用 `[[filename]]` 或 `[[filename\|显示文字]]` | `[[llm-wiki\|LLM Wiki]]` |
 | tag | 小写英文，短横线连接 | `knowledge-base` |
+
+### 3.1 concepts/ 分层目录语义
+
+> 当概念数量超过 ~5 个就必须分层，否则平铺会失控。建概念 stub 时按下表选目录：
+
+| 子目录 | 收录 | 例 |
+| --- | --- | --- |
+| `concepts/foundations/` | **元方法论 / 范式 / 理论** —— 关于"如何做"或"为什么这样想"的抽象 | `llm-wiki` `rag` `agent-knowledge-base` |
+| `concepts/patterns/` | **可复用的设计模式 / 工程实践** —— 在多份资料里反复出现的"套路" | `nestjs-dynamic-module` `event-driven-architecture` |
+| `concepts/domains/` | **业务领域知识** —— 特定行业 / 业务场景的概念 | `oauth2-flow` `microservices-saga` |
+
+> 拿不准 → 默认放 `foundations/`（元层是兜底层）。后期如发现归类不当，进入月度 refactor 窗口迁移。
+>
+> wikilink 按 basename 解析（如 `[[llm-wiki]]`），子目录变化**不破坏既有链接**。
 
 ## 4. 各类型页面骨架
 
@@ -85,6 +108,7 @@ stub ──撰写──▶ draft ──多次复核──▶ stable
 ## 核心论点
 ## 我的加工意图
 ## 原文链接
+## 与旧版差异   ← 仅版本化摄入新版时必填，详见 §7
 ```
 
 ### topic
@@ -123,6 +147,51 @@ stub ──撰写──▶ draft ──多次复核──▶ stable
 
 以下字段曾考虑但决定不引入，以保持精简：
 - `owner` / `author` — Git 已有
-- `version` — Git 已有
 - `deprecated_reason` — 记在 `## 演进记录` 段落
+
+> **演进说明 · 2026-04-26**：原列表包含 `version`，认为"Git 已有"。但代码文档场景下同一份资料会以**新版本**重复入库（如 nest-redis v2 → v3），版本号是业务语义而非 Git 版本，必须显式登记。已从禁用列表移除并加入 §1 / §7。
+
+## 7. 代码文档版本化
+
+> 适用范围：**仅工作类代码文档**（其他三类来源——行业文章 / 个人笔记 / 网页收藏——为单点快照，不走版本化）。
+
+### 7.1 字段语义
+
+| 字段 | 语义 | 示例 |
+| --- | --- | --- |
+| `version` | 该 source / summary 对应的资料版本号 | `2.0.0` |
+| `supersedes` | 新版指向旧版的 wikilink | `[[2026-04-19-cs-nest-redis-v2.0.0]]` |
+| `superseded_by` | 旧版被替代后回填，指向新版 | `[[2026-06-15-cs-nest-redis-v3.0.0]]` |
+
+### 7.2 命名约定
+
+```
+sources/papers/<YYYY-MM-DD>-<slug>-v<X.Y.Z>.md
+summaries/<YYYY-MM-DD>-<slug>-v<X.Y.Z>.md
+```
+
+无版本号信息时，回退到不带 `-vX.Y.Z` 的常规命名。
+
+### 7.3 版本号识别优先级
+
+由 Agent 在摄入时按下列顺序判定，前一档命中即用，全部缺失则**主动询问用户一次**：
+
+1. 用户在对话中显式告知（如"这是 v3.0 的文档"）
+2. 内容里的明显版本字段（package.json 的 `version`、文档头部 `Version: x.x.x`、git tag）
+3. 摄入日期（fallback，仅当无法识别真实业务版本时）
+
+> 粘贴模式下 **文件 mtime 不可用**，故只有 3 档。
+
+### 7.4 旧 → 新版本对账
+
+新版摄入时必须：
+
+- 新 source 文件名带 `-vX.Y.Z`，frontmatter 含 `version` 与 `supersedes`
+- 新 summary 必须含 `## 与旧版差异` 段，分三类列示：**新增 / 仍然成立 / 被推翻**
+- 旧 summary frontmatter 回填 `superseded_by`（这是 append-first 框架下被允许的字段补全，写进 daily 留痕）
+- 被推翻的旧断言 → 在概念页 / 实体页对应段落加 `## 矛盾点` callout，遵循 [[CLAUDE]] §4
+- 实体页 `## 关键事件 / 里程碑` 或概念页 `## 演进记录` 追加："vX.X → vY.Y · 变化点 ZZ（[[新 summary]]）"
+- 旧 source 与旧 summary **保留不删**，作为版本演进档案
+
+详细操作流程见项目根 [[INGEST]]。
 
