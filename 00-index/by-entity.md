@@ -4,7 +4,7 @@ type: index
 tags: [moc]
 status: draft
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-27
 ---
 
 # 按实体导航
@@ -20,4 +20,5 @@ updated: 2026-04-19
 ## 工具 / 产品
 
 - [[cs-nest-redis|@cs/nest-redis]]
+- [[cs-nest-common|@cs/nest-common]]
 

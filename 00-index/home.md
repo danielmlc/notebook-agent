@@ -4,7 +4,7 @@ type: index
 tags: [moc]
 status: stable
 created: 2026-04-19
-updated: 2026-04-26
+updated: 2026-04-27
 ---
 
 # 知识库主页
@@ -30,11 +30,13 @@ Agent 操作遵循 [[CLAUDE|维护 SOP]] / [[AGENTS|AGENTS.md]]，页面规范�
 
 ## 最近摄入
 
+- [[2026-04-27-cs-nest-common-v4.0.1-beta.2|@cs/nest-common · 摘要 v4.0.1-beta.2]]
 - [[2026-04-04-karpathy-llm-wiki|Karpathy · LLM Wiki gist]]
 - [[2026-04-19-cs-nest-redis|@cs/nest-redis · 摘要]]
 
 ## 最近日志
 
+- [[2026-04-27|2026-04-27 日志]]
 - [[2026-04-26|2026-04-26 日志]]
 - [[2026-04-19|2026-04-19 日志]]
 

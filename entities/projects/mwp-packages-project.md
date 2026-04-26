@@ -7,10 +7,12 @@ status: draft
 confidence: medium
 sources:
   - "[[2026-04-19-cs-nest-redis]]"
+  - "[[2026-04-27-cs-nest-common-v4.0.1-beta.2]]"
 related:
   - "[[cs-nest-redis]]"
+  - "[[cs-nest-common]]"
 created: 2026-04-19
-updated: 2026-04-19
+updated: 2026-04-27
 last_reviewed: 2026-04-19
 ---
 
@@ -27,6 +29,7 @@ last_reviewed: 2026-04-19
 ## 关键事件 / 里程碑
 
 - 2026-04-19 · 本知识库首次摄入该 repo 的文档，起自 `@cs/nest-redis` v2.0.0
+- 2026-04-27 · 摄入 `@cs/nest-common` v4.0.1-beta.2
 
 ## 观点与作品
 
@@ -36,6 +39,7 @@ last_reviewed: 2026-04-19
 **已入库**
 
 - [[cs-nest-redis|@cs/nest-redis]] · Redis 封装（11KB）
+- [[cs-nest-common|@cs/nest-common]] · 通用工具（85KB）v4.0.1-beta.2
 
 **观察到但未入库**
 
@@ -43,7 +47,6 @@ last_reviewed: 2026-04-19
 - `@cs/sql-parser` · SQL 解析器（115KB）*（未入库）*
 - `@cs/nest-schedule` · 定时任务（99KB）*（未入库）*
 - `@cs/nest-typeorm` · ORM 封装（91KB）*（未入库）*
-- `@cs/nest-common` · 通用工具（85KB）*（未入库）*
 - `@cs/nest-mq` · 消息队列（82KB）*（未入库）*
 - `@cs/nest-files` · 文件服务（68KB）*（未入库）*
 - `@cs/nest-config` · 配置管理（36KB）*（未入库）*
@@ -59,4 +62,5 @@ last_reviewed: 2026-04-19
 ## 引用来源
 
 - [[2026-04-19-cs-nest-redis]]
+- [[2026-04-27-cs-nest-common-v4.0.1-beta.2]]
 
