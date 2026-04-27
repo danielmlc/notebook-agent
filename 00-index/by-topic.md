@@ -18,3 +18,9 @@ updated: 2026-04-26
 
 ## （待填充更多主题）
 
+## 微服务框架
+
+- [[json-rpc-2.0|JSON-RPC 2.0]] ← concept
+- [[microservice-exception-retry|微服务异常与重试策略]] ← concept
+- [[graceful-shutdown|优雅停机]] ← concept
+

@@ -21,4 +21,5 @@ updated: 2026-04-27
 
 - [[cs-nest-redis|@cs/nest-redis]]
 - [[cs-nest-common|@cs/nest-common]]
+- [[cs-nest-cloud|@cs/nest-cloud]]
 

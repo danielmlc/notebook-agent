@@ -40,7 +40,8 @@ last_reviewed: 2026-04-19
 ## 关联主题
 
 - 归属项目：[[mwp-packages-project]]
-- 兄弟 package（同 monorepo，待入库）：`@cs/nest-cloud` / `@cs/nest-common` / `@cs/nest-typeorm` / `@cs/nest-mq` / `@cs/nest-config` / `@cs/nest-schedule` / `@cs/nest-files` / `@cs/nest-cas-client` / `@cs/nest-sms` / `@cs/nest-auth-client` / `@cs/nest-mail` / `@cs/sql-parser`
+- 兄弟 package（同 monorepo）：[[cs-nest-common|@cs/nest-common]]、[[cs-nest-cloud|@cs/nest-cloud]]
+- 待入库兄弟 package：`@cs/nest-typeorm` / `@cs/nest-mq` / `@cs/nest-config` / `@cs/nest-schedule` / `@cs/nest-files` / `@cs/nest-cas-client` / `@cs/nest-sms` / `@cs/nest-auth-client` / `@cs/nest-mail` / `@cs/sql-parser`
 
 ## 引用来源
 
