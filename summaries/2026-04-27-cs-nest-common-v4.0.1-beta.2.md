@@ -6,6 +6,7 @@ tags: [nestjs, mwp, code-docs, context, logger, http, dto, crypto]
 status: draft
 confidence: high
 version: "4.0.1-beta.2"
+superseded_by: "[[2026-05-14-cs-nest-common-v4.0.1]]"
 sources:
   - "[[2026-04-27-cs-nest-common-v4.0.1-beta.2]]"
 related:

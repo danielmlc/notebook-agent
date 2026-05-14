@@ -1,0 +1,34 @@
+application:
+  name: '{{SERVICE_NAME}}'
+  port: 3001
+  serverPath: '{{SERVER_PATH}}'
+  profiles.active: 'local'
+
+profiles.local:
+  disableConsole: false
+  logger:
+    level: 'verbose'
+  docs:
+    name: '服务文档'
+    describe: '服务文档描述'
+    version: 1.0
+  loggerInterceptor:
+    moreInfo: true
+  transformInterceptor: true
+  exceptionFilter:
+    stack:
+      response: true
+      logger: true
+  validationPipe:
+    transform: false
+    whitelist: false
+  mysql:
+    record:
+      name: 'default'
+      type: 'mysql'
+      host: 'localhost'
+      port: 3306
+      username: 'root'
+      password: 'password'
+      database: 'my_db'
+      synchronize: false

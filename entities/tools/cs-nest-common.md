@@ -5,9 +5,10 @@ aliases: ["@cs/nest-common", "nest-common", "cs-nest-common", "NestJS 通用工�
 tags: [nestjs, mwp, package, tool, logger, context, http, dto, crypto]
 status: draft
 confidence: high
-version: "4.0.1-beta.2"
+version: "4.0.1"
 sources:
   - "[[2026-04-27-cs-nest-common-v4.0.1-beta.2]]"
+  - "[[2026-05-14-cs-nest-common-v4.0.1]]"
 related:
   - "[[mwp-packages-project]]"
   - "[[cs-nest-redis]]"
@@ -23,7 +24,7 @@ last_reviewed: 2026-04-27
 - 类别：工具 / NestJS package
 - 语言：TypeScript
 - 归属：[[mwp-packages-project]]
-- 当前版本：4.0.1-beta.2
+- 当前版本：4.0.1
 - License：ISC
 - 作者：danielmlc
 - 核心依赖：`winston` + `winston-daily-rotate-file`、`axios ^0.27`、`argon2`、`nanoid`、`class-validator` / `class-transformer`、`@nestjs/common ^10`
@@ -31,6 +32,7 @@ last_reviewed: 2026-04-27
 ## 关键事件 / 里程碑
 
 - 2026-04-27 · 首次入库（基于 v4.0.1-beta.2 源码快照）
+- 2026-05-14 · v4.0.1-beta.2 → v4.0.1：从 beta 升级正式版，核心设计不变（详见 [[2026-05-14-cs-nest-common-v4.0.1]]）
 
 ## 核心模块
 
@@ -89,3 +91,4 @@ last_reviewed: 2026-04-27
 ## 引用来源
 
 - [[2026-04-27-cs-nest-common-v4.0.1-beta.2]]
+- [[2026-05-14-cs-nest-common-v4.0.1]]

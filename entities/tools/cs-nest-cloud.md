@@ -5,9 +5,10 @@ aliases: ["@cs/nest-cloud", "nest-cloud", "cs-nest-cloud", "NestJS 微服务核�
 tags: [nestjs, mwp, package, tool, rpc, json-rpc, microservice, istio, graceful-shutdown, http-proxy]
 status: draft
 confidence: high
-version: "3.0.1-beta.9"
+version: "3.0.3"
 sources:
   - "[[2026-04-27-cs-nest-cloud-v3.0.1-beta.9]]"
+  - "[[2026-05-14-cs-nest-cloud-v3.0.3]]"
 related:
   - "[[mwp-packages-project]]"
   - "[[cs-nest-common]]"
@@ -27,7 +28,7 @@ last_reviewed: 2026-04-27
 - 类别：工具 / NestJS Package
 - 语言：TypeScript
 - 归属：[[mwp-packages-project]]
-- 当前版本：3.0.1-beta.9
+- 当前版本：3.0.3
 - License：ISC
 - 作者：danielmlc
 - 定位：微服务核心框架 — 服务启动、注册、跨服务调用
@@ -37,6 +38,7 @@ last_reviewed: 2026-04-27
 ## 关键事件 / 里程碑
 
 - 2026-04-27 · 首次入库（基于 v3.0.1-beta.9 源码快照）
+- 2026-05-14 · v3.0.1-beta.9 → v3.0.3：从 beta 升级正式版，目录结构与核心设计不变，bootstrap 增加信号诊断日志（详见 [[2026-05-14-cs-nest-cloud-v3.0.3]]）
 
 ## 核心模块
 
@@ -107,3 +109,4 @@ last_reviewed: 2026-04-27
 ## 引用来源
 
 - [[2026-04-27-cs-nest-cloud-v3.0.1-beta.9]]
+- [[2026-05-14-cs-nest-cloud-v3.0.3]]

@@ -6,6 +6,7 @@ tags: [nestjs, mwp, rpc, json-rpc, microservice, istio, graceful-shutdown]
 status: draft
 confidence: high
 version: "3.0.1-beta.9"
+superseded_by: "[[2026-05-14-cs-nest-cloud-v3.0.3]]"
 sources:
   - "[[2026-04-27-cs-nest-cloud-v3.0.1-beta.9]]"
 related:

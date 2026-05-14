@@ -1,0 +1,32 @@
+{
+  "name": "{{SERVICE_NAME}}",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "scripts": {
+    "cp:config": "cp ./config.yaml ./dist",
+    "build": "nest build",
+    "start:dev": "npm run cp:config && nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start": "nest start"
+  },
+  "dependencies": {
+    "@cs/nest-auth-client": "^1.0.1",
+    "@cs/nest-cloud": "^3.0.1",
+    "@cs/nest-common": "^4.0.1",
+    "@cs/nest-config": "^4.0.1",
+    "@cs/nest-typeorm": "^2.0.0"
+  },
+  "devDependencies": {
+    "@cs/js-eslint-config-library": "^0.2.7",
+    "@cs/webpages-packer": "^4.1.11",
+    "@types/node": "25.5.2",
+    "eslint": "^10.2.0"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
+  }
+}
