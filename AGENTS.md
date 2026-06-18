@@ -167,3 +167,16 @@ tags: [sop, agent, multi-model]
 - 下一步建议
 
 保持简洁，无需罗列所有细节。
+
+---
+
+## Cursor Cloud specific instructions
+
+> 本段供未来 Cursor 云端 Agent 使用，记录"如何在本库开发/验证"的非显然要点。与 [[CLAUDE]] 同名段保持同步。
+
+- **本库不是传统软件项目**：纯 Markdown + Git，无 `package.json` / 构建 / 包管理 / 服务进程。所谓"运行应用"= Agent 按 [[INGEST]] / 本文件运行三大工作流（摄入 / 查询 / 维护），无需启动任何 server。
+- **依赖**：零运行时依赖。启动更新脚本为 no-op，无需安装任何东西。仓库自带 `python3`（标准库即可跑健康检查）。
+- **lint / test 等价物**：`python3 scripts/kb_check.py .`（仅用标准库）。校验全部 `[[wikilink]]` 可解析 + 各页 frontmatter 完整；发现悬挂链接时 exit code 非零，可挂 CI / pre-commit。这是 §3.3 "每周检查悬挂链接" 的可执行手段。
+- **wikilink 解析按 basename**：链接目标含版本点号（如 `cs-nest-redis-v2.0.0`）时，按整段 basename 比对，勿用 `splitext`（会误删 `.0`）。`kb_check.py` 已处理。
+- **写改动遵循 SOP 红线**：默认 Append-first（§5.2）；`sources/` 与 schema 文件（CLAUDE.md / AGENTS.md / SCHEMA.md / INGEST.md / TEMPLATES）非授权不改；新建概念/实体页前先做同义收敛（§5.1）。
+- **AGENTS.md 与 CLAUDE.md 必须同步**：二者为等价副本，改一个必须同步另一个并在 `daily/<today>.md` 留痕。
